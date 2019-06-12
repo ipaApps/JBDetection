@@ -25,7 +25,6 @@ UIAlertView *Alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"This D
     [Alert show];
 
 
-     }
+    }
 }
-
 %end

@@ -73,10 +73,9 @@ UIAlertView *Alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"This D
     [Alert show];
 
 
-     }
+    }
 }
-
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$ViewController = objc_getClass("ViewController"); _logos_superclass$_ungrouped$ViewController = class_getSuperclass(_logos_class$_ungrouped$ViewController); { _logos_register_hook$(_logos_class$_ungrouped$ViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$ViewController$viewDidLoad, (IMP *)&_logos_orig$_ungrouped$ViewController$viewDidLoad);}} }
-#line 32 "/Users/mohamedtanbakji/Desktop/JBDetection/JBDetection/JBDetection.xm"
+#line 31 "/Users/mohamedtanbakji/Desktop/JBDetection/JBDetection/JBDetection.xm"
