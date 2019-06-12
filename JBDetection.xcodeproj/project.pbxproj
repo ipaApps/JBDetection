@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5460C4A122B18C70008BE79D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C4A022B18C70008BE79D /* UIKit.framework */; };
 		5460C4A322B18C70008BE79D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C4A222B18C70008BE79D /* Foundation.framework */; };
-		5460C4A522B18C70008BE79D /* CydiaSubstrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C4A422B18C70008BE79D /* CydiaSubstrate.framework */; };
 		5460C4AE22B18C70008BE79D /* JBDetection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5460C4AD22B18C70008BE79D /* JBDetection.mm */; };
 /* End PBXBuildFile section */
 
@@ -17,10 +16,9 @@
 		5460C49D22B18C70008BE79D /* JBDetection.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = JBDetection.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		5460C4A022B18C70008BE79D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5460C4A222B18C70008BE79D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5460C4A422B18C70008BE79D /* CydiaSubstrate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CydiaSubstrate.framework; path = Library/Frameworks/CydiaSubstrate.framework; sourceTree = DEVELOPER_DIR; };
 		5460C4A922B18C70008BE79D /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		5460C4AB22B18C70008BE79D /* JBDetection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JBDetection-Prefix.pch"; sourceTree = "<group>"; };
-		5460C4AC22B18C70008BE79D /* JBDetection.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = JBDetection.xm; sourceTree = "<group>"; };
+		5460C4AC22B18C70008BE79D /* JBDetection.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc.preprocessed; path = JBDetection.xm; sourceTree = "<group>"; };
 		5460C4AD22B18C70008BE79D /* JBDetection.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JBDetection.mm; sourceTree = "<group>"; };
 		5460C4B222B18C70008BE79D /* JBDetection.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = JBDetection.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/JBDetection.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,7 +30,6 @@
 			files = (
 				5460C4A122B18C70008BE79D /* UIKit.framework in Frameworks */,
 				5460C4A322B18C70008BE79D /* Foundation.framework in Frameworks */,
-				5460C4A522B18C70008BE79D /* CydiaSubstrate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +58,6 @@
 			children = (
 				5460C4A022B18C70008BE79D /* UIKit.framework */,
 				5460C4A222B18C70008BE79D /* Foundation.framework */,
-				5460C4A422B18C70008BE79D /* CydiaSubstrate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,7 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3ZHWD87FU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -309,16 +305,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBDetection/JBDetection-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
 				MonkeyDevCopyOnBuild = NO;
-				MonkeyDevDeviceIP = "";
-				MonkeyDevDevicePassword = "";
-				MonkeyDevDevicePort = "";
+				MonkeyDevDeviceIP = 192.168.1.140;
+				MonkeyDevDevicePassword = alpine;
+				MonkeyDevDevicePort = 22;
 				MonkeyDevInstallOnAnyBuild = YES;
 				MonkeyDevInstallOnProfiling = YES;
 				MonkeyDevkillProcessOnInstall = SpringBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -327,7 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3ZHWD87FU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -335,16 +333,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBDetection/JBDetection-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
 				MonkeyDevCopyOnBuild = NO;
-				MonkeyDevDeviceIP = "";
-				MonkeyDevDevicePassword = "";
-				MonkeyDevDevicePort = "";
+				MonkeyDevDeviceIP = 192.168.1.140;
+				MonkeyDevDevicePassword = alpine;
+				MonkeyDevDevicePort = 22;
 				MonkeyDevInstallOnAnyBuild = YES;
 				MonkeyDevInstallOnProfiling = YES;
 				MonkeyDevkillProcessOnInstall = SpringBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

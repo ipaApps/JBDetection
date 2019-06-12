@@ -1,38 +1,31 @@
-// See http://iphonedevwiki.net/index.php/Logos
-
-#if TARGET_OS_SIMULATOR
-#error Do not support the simulator, please use the real iPhone Device.
-#endif
-
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-%hook ClassName
 
-+ (id)sharedInstance
+%config(generator=internal)
+
+//If You Want Detect Another App Change This Header "ViewController"
+%hook ViewController
+- (void)viewDidLoad {
+
+
+//You Can Put Any App Name Here, Example: "/Applications/Sileo.app"
+NSString *filePath = @"/Applications/Cydia.app";
+if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
 {
-	%log;
-
-	return %orig;
+    
+    UIAlertView *jbAlert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Sorry, This Device is jailbroken :(" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+[jbAlert show];
 }
+    
+else {
+UIAlertView *Alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"This Device is not jailbroken, Enjoy!" delegate:self cancelButtonTitle:@"Thanks" otherButtonTitles:nil];
+    
+//For Hiding Alert in Unjailbroken Mode, Remove "[Alert show];"
+    [Alert show];
 
-- (void)messageWithNoReturnAndOneArgument:(id)originalArgument
-{
-	%log;
 
-	%orig(originalArgument);
-	
-	// or, for exmaple, you could use a custom value instead of the original argument: %orig(customValue);
-}
-
-- (id)messageWithReturnAndNoArguments
-{
-	%log;
-
-	id originalReturnOfMessage = %orig;
-	
-	// for example, you could modify the original return value before returning it: [SomeOtherClass doSomethingToThisObject:originalReturnOfMessage];
-
-	return originalReturnOfMessage;
+     }
 }
 
 %end
